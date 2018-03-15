@@ -17,19 +17,19 @@ class Render : public Module {
 	int PreUpdate() {
 
 		LOG("Render preupdate!");
-		return
+		return update_status::UPDATE_CONTINUE;
 	}
 
 	int Update() {
 
 		LOG("Render update!");
-		return
+		return update_status::UPDATE_CONTINUE;
 	}
 
 	int PostUpdate() {
 
 		LOG("Render postupdate!");
-		return
+		return update_status::UPDATE_CONTINUE;
 	}
 
 	bool CleanUp() {

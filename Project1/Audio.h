@@ -17,19 +17,19 @@ class Audio : public Module {
 	int PreUpdate() {
 
 		LOG("Audio preupdate!");
-		return 
+		return update_status::UPDATE_CONTINUE;
 	}
 
 	int Update() {
 
 		LOG("Audio update!");
-		return 
+		return update_status::UPDATE_CONTINUE;
 	}
 
 	int PostUpdate() {
 
 		LOG("Audio postupdate!");
-		return 
+		return update_status::UPDATE_CONTINUE;
 	}
 
 	bool CleanUp() {

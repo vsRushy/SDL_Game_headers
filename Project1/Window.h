@@ -17,19 +17,19 @@ class Window : public Module {
 	int PreUpdate() {
 
 		LOG("Window preupdate!");
-		return
+		return update_status::UPDATE_CONTINUE;
 	}
 
 	int Update() {
 
 		LOG("Window update!");
-		return
+		return update_status::UPDATE_CONTINUE;
 	}
 
 	int PostUpdate() {
 
 		LOG("Window postupdate!");
-		return
+		return update_status::UPDATE_CONTINUE;
 	}
 
 	bool CleanUp() {

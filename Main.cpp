@@ -2,10 +2,15 @@
 #include "SDL_Image/include/SDL_image.h"
 #include "SDL_Mixer/include/SDL_mixer.h"
 
+#include "Project1\Globals.h"
+#include "Project1\Application.h"
+#include "Project1\MemLeaks.h"
+
 #pragma comment(lib, "../SDL/libx86/SDL2.lib")
 #pragma comment(lib, "../SDL/libx86/SDL2main.lib")
 #pragma comment(lib, "../SDL_Image/libx86/SDL2_image.lib")
 #pragma comment(lib, "../SDL_Mixer/libx86/SDL2_mixer.lib")
+
 #define LENGTH 640
 #define HEIGHT 480
 #define SHIP_SPEED 1
@@ -14,15 +19,6 @@
 #define SPACESHIP_H 64
 #define LASER_L 64
 #define LASER_H 64
-
-enum main_states
-{
-	MAIN_CREATION,
-	MAIN_START,
-	MAIN_UPDATE,
-	MAIN_FINISH,
-	MAIN_EXIT
-};
 
 typedef struct {
 
@@ -242,8 +238,25 @@ void Draw() {
 	SDL_RenderPresent(g.renderer); // Render present is needed in order to show new sprites / changes of the screen
 }
 
+
+enum main_states {
+
+	MAIN_CREATION,
+	MAIN_START,
+	MAIN_UPDATE,
+	MAIN_FINISH,
+	MAIN_EXIT
+};
+
+
 // Main program
 int main(int argc, char* argv[]) {
+
+	ReportMemoryLeaks();
+
+	int main_return = EXIT_FAILURE;
+	Application* app = nullptr;
+	main_states state = MAIN_CREATION;
 
 	Start();
 
@@ -255,5 +268,7 @@ int main(int argc, char* argv[]) {
 
 	Finish();
 
-	return 0;
+	delete app;
+
+	return main_return;
 }

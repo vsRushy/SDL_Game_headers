@@ -17,19 +17,19 @@ class Input : public Module {
 	int PreUpdate() {
 
 		LOG("Input preupdate!");
-		return
+		return update_status::UPDATE_CONTINUE;
 	}
 
 	int Update() {
 
 		LOG("Input update!");
-		return
+		return update_status::UPDATE_CONTINUE;
 	}
 
 	int PostUpdate() {
 
 		LOG("Input postupdate!");
-		return
+		return update_status::UPDATE_CONTINUE;
 	}
 
 	bool CleanUp() {

@@ -25,6 +25,14 @@ public:
 		modules[3] = new Render();
 	}
 
+	~Application() {
+
+		for (int i = NUM_MODULES; i > 0; --i) {
+
+			delete modules[i];
+		}
+	}
+
 	// Initialitize all modules
 	bool Init() {
 
@@ -32,6 +40,8 @@ public:
 
 			modules[i]->Init();
 		}
+
+		return true;
 	}
 
 	int PreUpdate() {
@@ -40,6 +50,8 @@ public:
 
 			modules[i]->PreUpdate();
 		}
+
+		return update_status::UPDATE_CONTINUE;
 	}
 
 	int Update() {
@@ -48,6 +60,8 @@ public:
 
 			modules[i]->Update();
 		}
+
+		return update_status::UPDATE_CONTINUE;
 	}
 
 	int PostUpdate() {
@@ -56,6 +70,8 @@ public:
 
 			modules[i]->PostUpdate();
 		}
+
+		return update_status::UPDATE_CONTINUE;
 	}
 
 	bool CleanUp() {
@@ -64,6 +80,8 @@ public:
 
 			modules[i]->CleanUp();
 		}
+
+		return true;
 	}
 };
 
